@@ -1,10 +1,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Movie, PageProps } from '@/types';
-import { Head, Link } from '@inertiajs/react';
+import { Head, Link,useForm } from '@inertiajs/react';
 
 export default function Dashboard({
     movies,
-}: PageProps<{ movies: Movie[] }>) {
+    canAddReview,
+}: PageProps<{ movies: Movie[], canAddReview: boolean}>) {
     return (
         <AuthenticatedLayout
             header={
@@ -27,12 +28,18 @@ export default function Dashboard({
                                 >
                                     <h2 className="font-bold">{movie.title}</h2>
                                     <p>{movie.description}</p>
-                                </Link>
+                                    
+                                  </Link>
+                            
+                               
+
                             ))}
                         </ul>
+                        
                     </div>
                 </div>
             </div>
+            
         </AuthenticatedLayout>
     );
 }
